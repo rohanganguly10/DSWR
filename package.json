@@ -1,22 +1,22 @@
 {
-  "name": "onserv",
+  "name": "dswr",
   "version": "1.0.0",
-  "description": "This is a project built for DotSlash5.0",
+  "description": "This is a project built for Data Science with Rohan",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js --ext js,hbs,css"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeHex-3/OnServ.git"
+    "url": "git+https://github.com/rohanganguly10/DSWR.git"
   },
-  "author": "CodeHex",
+  "author": "Rohan Ganguly",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodeHex-3/OnServ/issues"
+    "url": "https://github.com/rohanganguly10/DSWR/issues"
   },
-  "homepage": "https://github.com/CodeHex-3/OnServ#readme",
+  "homepage": "https://github.com/rohanganguly10/DSWR#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
@@ -28,7 +28,7 @@
     "validator": "^13.7.0"
   },
   "engines": {
-    "node": "17.x"
+    "node": "22.x"
   },
   "keywords": [],
   "devDependencies": {}
