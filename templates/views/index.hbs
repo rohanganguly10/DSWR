@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohan Ganguly | Data Scientist</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Partial -->
+  {{> navbar}}
+
+  <!-- Hero Section -->
+  <section class="hero-container">
+    <div class="hero-text">
+      <h1 class="hero-title">
+  Hi, I'm <span class="highlight-name">ROHAN GANGULY</span>
+</h1>
+
+        {{!-- <span class="typing-wrapper">
+          <span id="typing-text" class="typing-text" aria-live="polite" aria-atomic="true"></span>
+        </span> --}}
+
+      <h2 class="hero-subtitle">
+        A Trusted
+        <span class="typing-wrapper">
+          <span id="typing-text" class="typing-text" aria-live="polite" aria-atomic="true"></span>
+        </span>
+      </h2>
+      <p class="hero-desc">
+        I specialize in <strong>Data Science, Machine Learning, and AI</strong>.  
+        I build courses that transform beginners into professionals through hands-on, practical learning.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="/youtube" class="hero-btn hero-btn-primary">Explore Classes</a>
+        <a href="/contact" class="hero-btn hero-btn-secondary">Connect Me</a>
+      </div>
+    </div>
+
+    <div class="hero-profile">
+      <img src="https://ik.imagekit.io/dlvosppac/pic%20cropped.png?updatedAt=1758027751650" alt="Rohan Ganguly" class="profile-img" />
+    </div>
+  </section>
+
+  <!-- YouTube Slider Section -->
+  
+  <section class="youtube-slider-section">
+    <h2 class="section-title">
+      <a href="/youtube" class="services-link">Learn with Me</a>
+      </h2>
+
+    <div class="swiper youtube-swiper">
+      <div class="swiper-wrapper">
+        {{#each youtube.videos}}
+        <div class="swiper-slide">
+          <iframe width="300" height="170"
+                  src="https://www.youtube.com/embed/{{this.id}}"
+                  title="{{this.title}}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+          <p class="video-title">{{this.title}}</p>
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Pagination Dots -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section> 
+
+  <!-- JS -->
+  <script src="/js/navbar.js"></script>
+  <script src="/js/index.js"></script>
+
+  <!-- Swiper.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".youtube-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 25,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+        1280: { slidesPerView: 4 }
+      },
+    });
+  </script>
+
+  <!--Services-->
+  <section id="services" class="services-section">
+  <h2 class="section-title">
+  <a href="/services" class="services-link">Work with Me</a></h2>
+  <div class="services-slider-wrapper">
+    <div class="services-slider">
+      {{#each services}}
+        <div class="service-card">
+          <div class="service-header">
+            <img src="{{icon}}" alt="{{title}} icon" class="icon" />
+            <h2>{{title}}</h2>
+          </div>
+          <ul>
+            {{#each summary}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/each}}
+    </div>
+    <button class="slider-btn left-btn">&#10094;</button>
+    <button class="slider-btn right-btn">&#10095;</button>
+  </div>
+</section>
+
+
+
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <h2 class="section-title">
+    <a href="/projects" class="services-link">Implement with me</a>
+    </h2>
+  <div class="projects-slider-wrapper">
+    <div class="projects-slider">
+      {{#each projects}}
+        <div class="project-card">
+          <div class="project-body">
+            <h2 class="project-title">{{this.title}}</h2>
+            <ul class="project-summary">
+              {{#each this.summary}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+            {{!-- <div class="tags">
+              {{#each this.tech}}
+                <span class="tag">{{this}}</span>
+              {{/each}}
+            </div> --}}
+            <div class="project-links">
+              <a href="{{this.githubLink}}" target="_blank" class="btn btn-github-small">💻 GitHub</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <button class="slider-btn left-btn">&#10094;</button>
+    <button class="slider-btn right-btn">&#10095;</button>
+  </div>
+</section>
+<!-- Resources Section -->
+<section id="resources" class="resources-section">
+  <h2 class="section-title">
+    <a href="/resources" class="services-link">Learning Resources</a>
+    </h2>
+  <div class="resources-slider-wrapper">
+    <div class="resources-slider">
+      {{#each resources}}
+        <div class="resource-card">
+          {{#if this.thumbnail}}
+            <img src="{{this.thumbnail}}" alt="{{this.title}}" class="resource-thumb">
+          {{/if}}
+          <div class="resource-body">
+            <h2 class="resource-title">{{this.title}}</h2>
+            {{#if this.summary}}
+              <p class="resource-summary">{{this.summary}}</p>
+            {{/if}}
+            <div class="resource-links">
+              {{#if this.liveLink}}
+                <a href="{{this.liveLink}}" target="_blank" class="btn btn-live">🔗 Live View</a>
+              {{/if}}
+              {{#if this.downloadFile}}
+                <a href="/pdf/{{this.downloadFile}}" download class="btn btn-download">⬇ Download</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <button class="slider-btn left-btn">&#10094;</button>
+    <button class="slider-btn right-btn">&#10095;</button>
+  </div>
+</section>
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="contact-container">
+    <form class="contact-form">
+      <h3>Get in Touch</h3>
+
+      <!-- Row: Name, Phone, Email -->
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="tel" id="phone" placeholder="Phone" required>
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <!-- Query -->
+      <textarea id="query" rows="4" placeholder="Your Query" required></textarea>
+
+      <!-- File Upload -->
+      <input type="file" id="file" class="file-input">
+
+      <!-- Buttons -->
+      <div class="contact-buttons">
+        <button type="button" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </button>
+        <button type="button" class="btn-email">
+          <i class="fa-solid fa-envelope"></i> Email
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+<script src="/js/index.js" defer></script>
+
+</body>
+</html>

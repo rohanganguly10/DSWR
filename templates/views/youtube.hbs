@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Journey</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/youtube.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  {{> navbar}}
+
+  <section class="youtube-section">
+    <!-- Heading -->
+    <div class="youtube-header">
+      <h1 class="youtube-title"> Youtube Playlists</h1>
+      
+    </div>
+
+    <!-- Stats 
+    <div class="youtube-stats">
+      <div class="stat-card">
+        <h2 class="stat-number">{{youtube.stats.subscribers}}</h2>
+        <p class="stat-label">Subscribers</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="stat-number">{{youtube.stats.views}}</h2>
+        <p class="stat-label">Views</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="stat-number">{{youtube.stats.watchHours}}</h2>
+        <p class="stat-label">Watch Hours</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="stat-number">{{youtube.stats.since}}</h2>
+        <p class="stat-label">Since</p>
+      </div>
+    </div>-->
+
+  
+
+    <!-- Main Video -->
+    <div class="youtube-main-video">
+      <iframe id="mainVideo" src="{{youtube.mainVideo}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+      <!-- Subscribe -->
+    <div class="youtube-subscribe">
+      <a href="https://www.youtube.com/@datasciencewithrohan" target="_blank" class="subscribe-btn">
+        Subscribe <i class="fas fa-bell"></i>
+      </a>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="youtube-filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="python">Python</button>
+      <button class="filter-btn" data-category="sql">SQL</button>
+      <button class="filter-btn" data-category="ml">Machine Learning</button>
+      <button class="filter-btn" data-category="dl">Deep Learning</button>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="youtube-thumbnails">
+      {{#each youtube.categories}}
+        {{#each this}}
+          <iframe 
+            class="yt-thumb" 
+            src="{{this}}" 
+            frameborder="0" 
+            allowfullscreen 
+            data-category="{{@../key}}">
+          </iframe>
+        {{/each}}
+      {{/each}}
+    </div>
+  </section>
+
+  <script src="/js/youtube.js"></script>
+
+        

@@ -1,0 +1,116 @@
+:root {
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --background: #f8f9ff;
+  --text-dark: #2d3436;
+  --text-light: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--background);
+  color: var(--text-dark);
+}
+
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Left side */
+.contact-info {
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInLeft 1.5s ease;
+}
+.contact-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+.contact-info p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Right side */
+.contact-links {
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  animation: slideInRight 1.5s ease;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  background: var(--background);
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  transform: translateY(40px);
+  opacity: 0;
+}
+.contact-btn.reveal {
+  transform: translateY(0);
+  opacity: 1;
+}
+.contact-btn:hover {
+  background: var(--primary);
+  color: var(--text-light);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(108, 92, 231, 0.3);
+}
+
+.contact-btn i {
+  font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  0% { transform: translateX(-80px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+  0% { transform: translateX(80px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  .contact-info, .contact-links {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+}

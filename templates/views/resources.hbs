@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/resources.css">
+
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  {{> navbar}}
+
+  <section class="resources-section">
+    <h1 class="resources-title"> Learning Resources</h1>
+  
+    <div class="resources-grid">
+      {{#each resources}}
+        <div class="resource-card">
+          {{#if this.thumbnail}}
+            <img src="{{this.thumbnail}}" alt="{{this.title}}" class="resource-thumb">
+          {{/if}}
+
+          <div class="resource-body">
+            <h2 class="resource-title">{{this.title}}</h2>
+
+            {{#if this.summary}}
+              <p class="resource-summary">{{this.summary}}</p>
+            {{/if}}
+
+            <div class="resource-links">
+              {{#if this.liveLink}}
+                <a href="{{this.liveLink}}" target="_blank" class="btn btn-live">
+                  <i class="fa-solid fa-eye"></i> Live View
+                </a>
+              {{/if}}
+
+              {{#if this.downloadFile}}
+                <a href="/pdf/{{this.downloadFile}}" download class="btn btn-download">
+                  <i class="fa-solid fa-download"></i> Download
+                </a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <script src="/js/resources.js"></script>
+
+
+</body>
+</html>

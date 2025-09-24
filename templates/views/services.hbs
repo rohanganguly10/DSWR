@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Data Science with Rohan</title>
+  <link rel="stylesheet" href="/css/services.css">
+  <script src="/js/services.js" defer></script>
+</head>
+<body>
+ <!-- Navbar Partial -->
+  {{> navbar}}
+  <header class="page-header">
+    <h1 class = "section-title"> Our Services</h1>
+  </header>
+
+
+  <section class="services-container">
+  
+    {{#each services}}
+      <div class="service-card">
+  <div class="service-header">
+    <img src="{{icon}}" alt="{{title}} icon" class="icon" />
+    <h2>{{title}}</h2>
+  </div>
+  <ul>
+    {{#each points}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  {{!-- <button class="learn-more">Know More</button> --}}
+</div>
+
+    {{/each}}
+  
+</section>
+<section class="contact-section">
+  <div class="contact-container">
+    <form class="contact-form">
+      <h3>Get in Touch</h3>
+
+      <!-- Row: Name, Phone, Email -->
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="tel" id="phone" placeholder="Phone" required>
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <!-- Query -->
+      <textarea id="query" rows="4" placeholder="Your Query" required></textarea>
+
+      <!-- File Upload -->
+      <input type="file" id="file" class="file-input">
+
+      <!-- Buttons -->
+      <div class="contact-buttons">
+        <button type="button" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </button>
+        <button type="button" class="btn-email">
+          <i class="fa-solid fa-envelope"></i> Email
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

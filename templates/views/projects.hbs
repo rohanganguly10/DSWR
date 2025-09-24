@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/projects.css">
+</head>
+<body>
+  {{> navbar}}
+  
+  <section class="projects-section">
+  <h1 class="section-title">My Projects</h1>
+  <!-- Filter Buttons -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="python">Python</button>
+    <button class="filter-btn" data-category="sql">SQL</button>
+    <button class="filter-btn" data-category="tableau">Tableau</button>
+    <button class="filter-btn" data-category="machine-learning">Machine Learning</button>
+    <button class="filter-btn" data-category="deep-learning">Deep Learning</button>
+    <button class="filter-btn" data-category="nlp">NLP</button>
+  </div>
+<div class="projects-grid">
+  {{#each projects}}
+    <div class="project-card" data-categories="{{this.categories}}">
+      <div class="project-body">
+        <h2 class="project-title">{{this.title}}</h2>
+        <p class="project-summary">{{this.summary}}</p>
+        <div class="tags">
+          {{#each this.tech}}
+            <span class="tag">{{this}}</span>
+          {{/each}}
+        </div>
+        <div class="project-links">
+          <!--<a href="{{this.liveLink}}" target="_blank" class="btn btn-live">🚀 Live Demo</a>-->
+          <a href="{{this.githubLink}}" target="_blank" class="btn btn-github">💻 GitHub</a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+</section>
+  <script src="/js/projects.js"></script>
+</body>
+</html>

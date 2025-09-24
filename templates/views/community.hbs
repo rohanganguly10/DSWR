@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/community.css">
+</head>
+<body>
+  {{> navbar}}
+
+  <!-- Banner -->
+  <section class="community-banner">
+    <div class="community-banner-overlay">
+      <div class="community-banner-text">
+        <h1 class="community-banner-title">Community Hub</h1>
+        <p class="community-banner-sub">Learn, share, and grow with others in the journey of Data Science.</p>
+        <a href="#posts" class="community-btn">Explore Posts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts Section -->
+  <main class="community-main" id="posts">
+    <div class="community-container">
+      {{#each posts}}
+        <article class="community-card" onclick="window.open('{{this.link}}', '_blank')">
+          {{#if this.thumbnail}}
+            <div class="community-card-media">
+              <img class="community-card-img" src="{{this.thumbnail}}" alt="{{this.title}}">
+            </div>
+          {{/if}}
+
+          <div class="community-card-body">
+            <h3 class="community-card-title">{{this.title}}</h3>
+            <p class="community-card-text">{{this.text}}</p>
+          </div>
+
+          <div class="community-card-meta">
+            <time class="community-card-date">{{this.datetime}}</time>
+          </div>
+        </article>
+      {{/each}}
+    </div>
+  </main>
+</body>
+</html>
