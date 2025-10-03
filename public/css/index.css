@@ -1038,3 +1038,40 @@ max-width: 200px;
 }
 }
 
+/* Large Desktops (1440px and up) */
+@media (min-width: 1440px) {
+  .hero-container {
+    padding: 6rem 8rem;
+    gap: 4rem;
+  }
+
+  .hero-text {
+    max-width: 800px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .profile-img {
+    max-width: 400px;
+  }
+
+  .hero-buttons {
+    gap: 1.5rem;
+  }
+
+  .hero-btn {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
