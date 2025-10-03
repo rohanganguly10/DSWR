@@ -54,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Manual scroll with arrows
   rightBtn?.addEventListener("click", () => {
-    slider.scrollBy({ left: getCardWidth() * 4, behavior: "smooth" }); // scroll 4 at once
+    slider.scrollBy({ left: getCardWidth() * 1, behavior: "smooth" }); // scroll 4 at once
   });
 
   leftBtn?.addEventListener("click", () => {
-    slider.scrollBy({ left: -getCardWidth() * 4, behavior: "smooth" });
+    slider.scrollBy({ left: -getCardWidth() * 1, behavior: "smooth" });
   });
 
   // Auto-scroll
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 5) {
         slider.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        slider.scrollBy({ left: getCardWidth() * 4, behavior: "smooth" });
+        slider.scrollBy({ left: getCardWidth() * 1, behavior: "smooth" });
       }
     }, intervalTime);
   };
@@ -84,21 +84,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //Projects
+// Projects Slider
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".projects-slider");
-  const leftBtn = document.querySelector(".left-btn");
-  const rightBtn = document.querySelector(".right-btn");
+  const leftBtn = document.querySelector(".projects-section .left-btn");
+  const rightBtn = document.querySelector(".projects-section .right-btn");
 
-  const cardWidth = 320; // card width + gap
+  if (!slider) return;
 
-  rightBtn.addEventListener("click", () => {
-    slider.scrollBy({ left: cardWidth, behavior: "smooth" });
+  const intervalTime = 10000; // auto-scroll every 10s
+  const getCardWidth = () => {
+    const card = slider.querySelector(".project-card");
+    return card ? card.offsetWidth + 20 : 320; // include gap
+  };
+
+  // Manual navigation
+  rightBtn?.addEventListener("click", () => {
+    slider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
   });
 
-  leftBtn.addEventListener("click", () => {
-    slider.scrollBy({ left: -cardWidth, behavior: "smooth" });
+  leftBtn?.addEventListener("click", () => {
+    slider.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
   });
+
+  // Auto-scroll
+  const startAutoScroll = () => {
+    return setInterval(() => {
+      if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 5) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        slider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+      }
+    }, intervalTime);
+  };
+
+  let autoScroll = startAutoScroll();
+  slider.addEventListener("mouseenter", () => clearInterval(autoScroll));
+  slider.addEventListener("mouseleave", () => { autoScroll = startAutoScroll(); });
 });
+
 
 // Resources Slider
 document.addEventListener("DOMContentLoaded", () => {
@@ -118,3 +142,23 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.scrollBy({ left: -cardWidth, behavior: "smooth" });
   });
 });
+
+const swiper = new Swiper(".youtube-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 25,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+        1280: { slidesPerView: 4 }
+      },
+    });

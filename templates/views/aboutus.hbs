@@ -9,8 +9,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/css/global.css" />
   <link rel="stylesheet" href="/css/aboutus.css" />
-</head>
-<body>
+
 
   <!-- Navbar Partial -->
   {{> navbar}}
@@ -54,6 +53,8 @@
  <!-- JS -->
   <script src="/js/navbar.js"></script>
 
+
+<!-- Contact Section -->
 <section class="contact-section">
   <div class="contact-container">
     <form class="contact-form">
@@ -74,13 +75,46 @@
 
       <!-- Buttons -->
       <div class="contact-buttons">
-        <button type="button" class="btn-whatsapp">
+        <button type="button" class="btn-whatsapp" id="whatsappBtn">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </button>
-        <button type="button" class="btn-email">
+        <button type="button" class="btn-email" id="emailBtn">
           <i class="fa-solid fa-envelope"></i> Email
         </button>
       </div>
     </form>
   </div>
 </section>
+
+<!-- JS -->
+<script>
+  document.getElementById("whatsappBtn").addEventListener("click", function() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const query = document.getElementById("query").value;
+
+    const message = `Hello, I am ${name}.%0A📞 Phone: ${phone}%0A📧 Email: ${email}%0A💬 Query: ${query}`;
+    const whatsappNumber = "91XXXXXXXXXX"; // Your WhatsApp number with country code
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+  });
+
+  document.getElementById("emailBtn").addEventListener("click", function() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const query = document.getElementById("query").value;
+
+    const subject = `${name} - Query`;
+    const body = `Name: ${name}%0A📞 Phone: ${phone}%0A📧 Email: ${email}%0A💬 Query: ${query}`;
+
+    window.location.href = `mailto:yourmail@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  });
+</script>
+```
+
+
+
+</head>
+<body>

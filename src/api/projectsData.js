@@ -29,7 +29,7 @@ module.exports = [
     categories: ["python", "nlp"]
   },
   {
-    title: "Texture Tales Case Study Analysis using SQL",
+    title: "Texture Tales Analysis using SQL",
     summary: [
       "Joining multiple csv",
       "Data Analysis using adv. SQL"
@@ -39,7 +39,7 @@ module.exports = [
     categories: ["sql"]
   },
   {
-    title: "Target US Case Study Analysis using SQL",
+    title: "Target US Analysis using SQL",
     summary: [
       "Joining multiple csv",
       "Data Analysis using adv. SQL"
@@ -49,7 +49,7 @@ module.exports = [
     categories: ["sql"]
   },
    {
-    title: "Netflix Case Study Data Analysis using Python",
+    title: "Netflix Data Analysis using Python",
     summary: [
       "Doing Exploratory Data Analysis",
       "Feature selection and Data Visualization"
@@ -59,7 +59,7 @@ module.exports = [
     categories: ["python"]
   },
   {
-    title: "Data Bank Case study Data Analysis using SQL",
+    title: "Data Bank Analysis using SQL",
     summary: [
       "Joining multiple csv",
       "Data Analysis using adv. SQL"
@@ -69,7 +69,7 @@ module.exports = [
     categories: ["sql"]
   },
   {
-    title: "Data Mart Case Study Data Analysis using SQL",
+    title: "D Mart Case Study Analysis using SQL",
     summary: [
       "Joining multiple csv",
       "Data Analysis using adv. SQL"
@@ -79,7 +79,7 @@ module.exports = [
     categories: ["sql"]
   },
   {
-    title: "Stock market Time Series Analysis using Python",
+    title: "Stock market Time Series Analysis",
     summary: [
       "Doing Exploratory Data Analysis",
       "Time Series and Data Visualization"
@@ -89,7 +89,7 @@ module.exports = [
     categories: ["python"]
   },
   {
-    title: "Swiggy Case Study Data Analysis using Python",
+    title: "Swiggy Data Analysis using Python",
     summary: [
       "Exploratory Data Analysis",
       "Feature selection and Data Visualization"
@@ -99,7 +99,7 @@ module.exports = [
     categories: ["python"]
   },
   {
-    title: "Loan Application Data Visualization using Tableau",
+    title: "Loan Application Data Visualization",
     summary: [
       "Exploratory Data Analysis",
       "Feature selection and Data Visualization"
@@ -109,7 +109,7 @@ module.exports = [
     categories: ["tableau"]
   },
   {
-    title: "COVID -19 Analytical Report Story Telling using Tableau",
+    title: "COVID -19 Story Telling using Tableau",
     summary: [
       "Exploratory Data Analysis",
       "Feature selection and Data Visualization"
@@ -119,7 +119,7 @@ module.exports = [
     categories: ["tableau"]
   },
   {
-    title: "sales Analysis Visualization Dashboard using Tableau",
+    title: "Sales Analysis Visualization Dashboard",
     summary: [
       "Exploratory Data Analysis",
       "Feature selection and Data Visualization"
@@ -129,7 +129,7 @@ module.exports = [
     categories: ["tableau"]
   },
   {
-    title: "IPL Winners Analysis Visualization Report using Tableau",
+    title: "IPL Winners Visualization Report",
     summary: [
       "Exploratory Data Analysis",
       "Feature selection and Data Visualization"
